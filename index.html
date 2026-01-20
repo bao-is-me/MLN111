@@ -1,0 +1,1857 @@
+﻿<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Triết học Mác - Lê-nin | Phép biện chứng duy vật</title>
+
+    <style>
+        :root {
+            /* Nature Minimal palette */
+            --bg: #F7F4EF;
+            /* nền chính */
+            --text: #1F2937;
+            /* chữ chính */
+            --card: #FFFFFF;
+            /* thẻ/card */
+            --line: #E5E7EB;
+            /* viền/đường kẻ */
+            --green: #1B5E20;
+            /* nhấn 1 */
+            --blue: #1E88E5;
+            /* nhấn 2 */
+            --gold: #C9A227;
+            /* nhấn 3 (dùng ít) */
+
+            --shadow: 0 10px 30px rgba(31, 41, 55, 0.08);
+            --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.35);
+            --radius: 18px;
+            --radius-sm: 14px;
+            --max: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            zoom: 1.25;
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            color: var(--text);
+            background:
+                radial-gradient(900px 480px at 22% -12%, rgba(59, 130, 246, 0.22), transparent 58%),
+                radial-gradient(820px 460px at 82% 12%, rgba(34, 197, 94, 0.22), transparent 58%),
+                linear-gradient(180deg, #ffffff 0%, #eef2f7 100%);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 18px;
+        }
+
+        /* Top nav */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            background: rgba(247, 244, 239, 0.75);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.9);
+        }
+
+        .topbar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            gap: 14px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .brand .kicker {
+            font-size: 12px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: rgba(31, 41, 55, .75);
+        }
+
+        .brand .title {
+            font-weight: 800;
+            font-size: 14px;
+            padding: 6px 10px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav a {
+            font-size: 13px;
+            padding: 8px 10px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            color: rgba(31, 41, 55, .85);
+        }
+
+        .nav a:hover {
+            border-color: var(--line);
+            background: rgba(255, 255, 255, 0.55);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: calc(100vh - 60px);
+            display: flex;
+            align-items: flex-start;
+            padding: 26px 0 26px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 18px;
+            align-items: stretch;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                min-height: auto;
+                padding: 20px 0 10px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid var(--line);
+            border-radius: 26px;
+            padding: 26px 22px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-card:before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            background: radial-gradient(800px 300px at 20% 0%, rgba(30, 136, 229, 0.12), transparent 65%),
+                radial-gradient(700px 280px at 90% 25%, rgba(27, 94, 32, 0.12), transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-card>* {
+            position: relative;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            font-size: 12px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: rgba(31, 41, 55, .72);
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(229, 231, 235, 0.95);
+            background: rgba(255, 255, 255, 0.75);
+            margin-bottom: 12px;
+        }
+
+        .hero-kicker .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, var(--green), rgba(27, 94, 32, 0.55));
+            box-shadow: 0 0 0 4px rgba(27, 94, 32, 0.10);
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: clamp(44px, 6vw, 78px);
+            line-height: 0.95;
+            letter-spacing: -0.03em;
+        }
+
+        .subtitle {
+            margin: 0 0 16px;
+            font-size: 15px;
+            color: rgba(31, 41, 55, .80);
+            max-width: 70ch;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .chip {
+            font-size: 12px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.75);
+        }
+
+        .chip.green {
+            border-color: rgba(27, 94, 32, 0.25);
+        }
+
+        .chip.blue {
+            border-color: rgba(30, 136, 229, 0.25);
+        }
+
+        .scroll-hint {
+            margin-top: 16px;
+            font-size: 12px;
+            color: rgba(31, 41, 55, .65);
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            align-items: center;
+            user-select: none;
+        }
+
+        .scroll-pill {
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px dashed rgba(30, 136, 229, 0.28);
+            background: rgba(30, 136, 229, 0.05);
+        }
+
+        /* Quote */
+        .quote {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 26px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: flex;
+            min-height: 240px;
+        }
+
+        .quote-accent {
+            width: 10px;
+            background: linear-gradient(180deg, var(--green), rgba(27, 94, 32, 0.55));
+            flex: 0 0 auto;
+        }
+
+        .quote-body {
+            padding: 18px 18px 16px;
+        }
+
+        .quote-label {
+            font-size: 12px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: rgba(31, 41, 55, .70);
+            margin-bottom: 8px;
+        }
+
+        blockquote {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .quote-vi {
+            margin-top: 10px;
+            color: rgba(31, 41, 55, .86);
+        }
+
+        .quote-author {
+            margin-top: 12px;
+            font-size: 13px;
+            color: rgba(31, 41, 55, .70);
+        }
+
+        /* Sections */
+        section {
+            padding: 26px 0;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 20px;
+            letter-spacing: -0.01em;
+        }
+
+        .hint {
+            font-size: 13px;
+            color: rgba(31, 41, 55, .70);
+        }
+
+        /* Placeholders / Cards */
+        .placeholder {
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 16px;
+        }
+
+        .ph-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 6px;
+        }
+
+        .ph-title h3 {
+            margin: 0;
+            font-size: 16px;
+            color: var(--green);
+        }
+
+        .ph-badge {
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(27, 94, 32, 0.25);
+            background: rgba(27, 94, 32, 0.08);
+            color: rgba(31, 41, 55, .85);
+        }
+
+        .ph-box {
+            margin-top: 10px;
+            border-radius: var(--radius);
+            border: 2px dashed rgba(31, 41, 55, 0.18);
+            background: rgba(255, 255, 255, 0.55);
+            min-height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+            text-align: center;
+            color: rgba(31, 41, 55, .70);
+        }
+
+        /* Buttons */
+        .btn {
+            appearance: none;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.80);
+            color: rgba(31, 41, 55, .88);
+            padding: 10px 14px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 800;
+            transition: transform .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
+            user-select: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.98);
+            border-color: rgba(31, 41, 55, 0.18);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn:disabled {
+            opacity: .55;
+            cursor: not-allowed;
+        }
+
+        .btn.primary {
+            background: rgba(27, 94, 32, 0.10);
+            border-color: rgba(27, 94, 32, 0.28);
+        }
+
+        .btn.primary:hover {
+            background: rgba(27, 94, 32, 0.14);
+        }
+
+        .btn.ghost {
+            background: rgba(255, 255, 255, 0.55);
+        }
+
+        /* ====== “Nội dung lý thuyết” ===== */
+        .pairs-intro {
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid var(--line);
+            border-radius: 26px;
+            box-shadow: var(--shadow);
+            padding: 18px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pairs-intro:before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            background: radial-gradient(700px 300px at 30% 0%, rgba(27, 94, 32, 0.10), transparent 60%),
+                radial-gradient(700px 300px at 80% 20%, rgba(30, 136, 229, 0.10), transparent 65%);
+            pointer-events: none;
+        }
+
+        .pairs-intro-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .pairs-title {
+            margin-top: 0;
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--green);
+            letter-spacing: -0.01em;
+        }
+
+        .pairs-desc {
+            position: relative;
+            margin: 10px 0 0;
+            color: rgba(31, 41, 55, .82);
+            font-size: 14px;
+            max-width: 90ch;
+        }
+
+        .pairs-note {
+            position: relative;
+            margin-top: 12px;
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            border: 1px dashed rgba(30, 136, 229, 0.30);
+            background: rgba(30, 136, 229, 0.06);
+            color: rgba(31, 41, 55, .80);
+            font-size: 13px;
+        }
+
+        details.pairs-more {
+            margin-top: 12px;
+            position: relative;
+            border-radius: 16px;
+            border: 1px solid rgba(229, 231, 235, 0.95);
+            background: rgba(255, 255, 255, 0.70);
+            padding: 10px 12px;
+        }
+
+        details.pairs-more summary {
+            cursor: pointer;
+            font-weight: 900;
+            color: rgba(31, 41, 55, .86);
+            list-style: none;
+        }
+
+        details.pairs-more summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .pairs-list {
+            margin: 10px 0 0;
+            padding-left: 18px;
+            color: rgba(31, 41, 55, .82);
+        }
+
+        .pairs-list li {
+            margin: 6px 0;
+        }
+
+        /* ===== Mini game (Multiple choice) ===== */
+        .game-shell {
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid var(--line);
+            border-radius: 26px;
+            box-shadow: var(--shadow);
+            padding: 16px;
+        }
+
+        .kpis {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 820px) {
+            .kpis {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .kpi {
+            border: 1px solid rgba(229, 231, 235, 0.95);
+            background: rgba(255, 255, 255, 0.70);
+            border-radius: 16px;
+            padding: 10px 12px;
+        }
+
+        .kpi .num {
+            font-weight: 950;
+            font-size: 18px;
+        }
+
+        .kpi .txt {
+            font-size: 12px;
+            color: rgba(31, 41, 55, .70);
+            margin-top: 2px;
+        }
+
+        .game-q {
+            margin-top: 12px;
+            border: 1px solid rgba(27, 94, 32, 0.18);
+            background: rgba(27, 94, 32, 0.06);
+            border-radius: 18px;
+            padding: 12px 12px;
+        }
+
+        .game-q .label {
+            font-size: 12px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: rgba(31, 41, 55, .70);
+            margin-bottom: 6px;
+        }
+
+        .game-q h3 {
+            margin: 0;
+            font-size: 18px;
+            letter-spacing: -0.01em;
+        }
+
+        .game-q p {
+            margin: 6px 0 0;
+            color: rgba(31, 41, 55, .80);
+        }
+
+        .choices {
+            margin-top: 12px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        @media (max-width: 820px) {
+            .choices {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .choice {
+            border: 1px solid rgba(229, 231, 235, 0.95);
+            background: rgba(255, 255, 255, 0.72);
+            border-radius: 16px;
+            padding: 12px;
+            cursor: pointer;
+            transition: transform .10s ease, background .10s ease, border-color .10s ease;
+            font-weight: 900;
+            color: rgba(31, 41, 55, .90);
+            user-select: none;
+        }
+
+        .choice:hover {
+            background: rgba(255, 255, 255, 0.95);
+            border-color: rgba(31, 41, 55, 0.18);
+        }
+
+        .choice:active {
+            transform: scale(0.99);
+        }
+
+        .choice[aria-disabled="true"] {
+            opacity: .65;
+            cursor: not-allowed;
+        }
+
+        .choice.correct {
+            border-color: rgba(27, 94, 32, 0.35);
+            box-shadow: 0 0 0 4px rgba(27, 94, 32, 0.10);
+        }
+
+        .choice.wrong {
+            border-color: rgba(220, 38, 38, 0.30);
+            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.08);
+        }
+
+        .game-row {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .status {
+            margin-top: 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(229, 231, 235, 0.95);
+            background: rgba(255, 255, 255, 0.70);
+            padding: 10px 12px;
+            color: rgba(31, 41, 55, .86);
+        }
+
+        .status.good {
+            border-color: rgba(27, 94, 32, 0.22);
+            background: rgba(27, 94, 32, 0.06);
+        }
+
+        .status.bad {
+            border-color: rgba(220, 38, 38, 0.22);
+            background: rgba(220, 38, 38, 0.06);
+        }
+
+        .progress {
+            height: 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid rgba(229, 231, 235, 0.95);
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, rgba(27, 94, 32, 0.8), rgba(30, 136, 229, 0.75));
+            transition: width .25s ease;
+        }
+
+        footer {
+            padding: 22px 0 34px;
+            color: rgba(31, 41, 55, .70);
+            font-size: 13px;
+        }
+
+        .footline {
+            border-top: 1px solid rgba(229, 231, 235, 0.9);
+            padding-top: 14px;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .mini {
+            font-size: 12px;
+            color: rgba(31, 41, 55, .65);
+        }
+
+        /* ====== BOOK MODAL ====== */
+        .modal {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 22px;
+            z-index: 999;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(6px);
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-close {
+            position: fixed;
+            top: 18px;
+            right: 18px;
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.92);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            line-height: 1;
+            transition: transform .12s ease, background .12s ease;
+            user-select: none;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .modal-close:active {
+            transform: scale(0.98);
+        }
+
+        .side-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            background: rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.90);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            line-height: 1;
+            user-select: none;
+            transition: transform .12s ease, background .12s ease, opacity .12s ease;
+        }
+
+        .side-arrow:hover {
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .side-arrow:active {
+            transform: translateY(-50%) scale(0.98);
+        }
+
+        .side-arrow.left {
+            left: 18px;
+        }
+
+        .side-arrow.right {
+            right: 18px;
+        }
+
+        .side-arrow:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
+        .book-frame {
+            width: min(980px, 100%);
+            border-radius: 18px;
+            box-shadow: var(--shadow-strong);
+            position: relative;
+            padding: 10px;
+            background:
+                linear-gradient(180deg, rgba(201, 162, 39, 0.35), rgba(201, 162, 39, 0.10)) padding-box,
+                linear-gradient(180deg, rgba(201, 162, 39, 0.90), rgba(27, 94, 32, 0.70)) border-box;
+            border: 2px solid transparent;
+        }
+
+        .book-shell {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 14px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .book-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(229, 231, 235, 0.95);
+            background: rgba(247, 244, 239, 0.70);
+        }
+
+        .book-top-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .book-pill {
+            font-size: 12px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(27, 94, 32, 0.22);
+            background: rgba(27, 94, 32, 0.06);
+            color: rgba(31, 41, 55, .88);
+            font-weight: 800;
+        }
+
+        .book-pager {
+            font-size: 12px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(229, 231, 235, 0.95);
+            background: rgba(255, 255, 255, 0.75);
+            color: rgba(31, 41, 55, .82);
+            font-weight: 800;
+        }
+
+        .book-pages {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 520px;
+            position: relative;
+        }
+
+        @media (max-width: 900px) {
+            .book-pages {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .book-pages:before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(229, 231, 235, 0.95);
+            transform: translateX(-1px);
+            pointer-events: none;
+        }
+
+        .book-pages:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 70px;
+            transform: translateX(-35px);
+            background: radial-gradient(35px 320px at 50% 50%, rgba(31, 41, 55, 0.12), transparent 70%);
+            pointer-events: none;
+        }
+
+        @media (max-width: 900px) {
+
+            .book-pages:before,
+            .book-pages:after {
+                display: none;
+            }
+        }
+
+        .page {
+            padding: 22px 20px 18px;
+            background: rgba(255, 255, 255, 0.96);
+        }
+
+        @media (max-width: 900px) {
+            .page {
+                padding: 18px 16px 16px;
+            }
+        }
+
+        .page.left {
+            border-right: 1px solid rgba(229, 231, 235, 0.75);
+        }
+
+        .page.right {
+            border-left: 1px solid rgba(229, 231, 235, 0.75);
+        }
+
+        @media (max-width: 900px) {
+            .page.left {
+                border-right: none;
+                border-bottom: 1px solid rgba(229, 231, 235, 0.75);
+            }
+
+            .page.right {
+                border-left: none;
+            }
+        }
+
+        .page-chip {
+            display: inline-flex;
+            font-size: 12px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(30, 136, 229, 0.25);
+            background: rgba(30, 136, 229, 0.08);
+            color: rgba(31, 41, 55, .88);
+            font-weight: 800;
+        }
+
+        .page-title {
+            margin: 12px 0 10px;
+            font-size: 24px;
+            line-height: 1.18;
+            color: rgba(31, 41, 55, 0.92);
+            letter-spacing: -0.02em;
+            font-weight: 900;
+        }
+
+        .page-block {
+            margin-top: 12px;
+            padding: 12px 12px;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(229, 231, 235, 0.95);
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        .page-block.meaning {
+            border: 1px solid rgba(27, 94, 32, 0.22);
+            background: rgba(27, 94, 32, 0.05);
+        }
+
+        .page-block.example {
+            border: 1px dashed rgba(30, 136, 229, 0.30);
+            background: rgba(30, 136, 229, 0.06);
+        }
+
+        .page-label {
+            font-size: 12px;
+            letter-spacing: .10em;
+            text-transform: uppercase;
+            color: rgba(31, 41, 55, .70);
+            margin-bottom: 6px;
+        }
+
+        .page-text {
+            font-size: 14.5px;
+            color: rgba(31, 41, 55, .84);
+        }
+
+        .page-text b {
+            color: rgba(31, 41, 55, 0.92);
+            font-weight: 900;
+        }
+
+        .page-text .key {
+            color: var(--blue);
+            font-weight: 900;
+        }
+
+        .illus {
+            height: 360px;
+            border-radius: 14px;
+            border: 1px solid rgba(229, 231, 235, 0.95);
+            background:
+                radial-gradient(520px 300px at 25% 20%, rgba(27, 94, 32, 0.14), transparent 60%),
+                radial-gradient(520px 300px at 80% 65%, rgba(30, 136, 229, 0.12), transparent 60%),
+                rgba(255, 255, 255, 0.92);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        .illus svg {
+            width: 100%;
+            height: 100%;
+            max-width: 420px;
+        }
+
+        .book-nav {
+            margin-top: 12px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .fade-swap {
+            animation: fadeSwap .20s ease;
+        }
+
+        @keyframes fadeSwap {
+            from {
+                opacity: 0.65;
+                transform: translateY(2px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .video-wrap {
+            background:
+                radial-gradient(600px 300px at 20% 0%, rgba(30, 136, 229, 0.12), transparent 60%),
+                radial-gradient(600px 300px at 80% 100%, rgba(27, 94, 32, 0.12), transparent 60%),
+                #ffffff;
+
+            border-radius: 18px;
+            padding: 14px;
+            box-shadow: var(--shadow);
+        }
+
+        /* ===== AI USAGE SECTION ===== */
+        .ai-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .ai-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ai-card {
+            background: rgba(255, 255, 255, 0.70);
+            border: 1px solid rgba(229, 231, 235, 0.95);
+            border-radius: 18px;
+            padding: 14px;
+            box-shadow: var(--shadow);
+        }
+
+        .ai-card h3 {
+            margin: 0 0 8px;
+            font-size: 16px;
+            color: var(--green);
+        }
+
+        .ai-card p {
+            margin: 0;
+            color: rgba(31, 41, 55, .82);
+        }
+
+        .ai-card ul {
+            margin: 8px 0 0;
+            padding-left: 18px;
+            color: rgba(31, 41, 55, .82);
+        }
+
+        .ai-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 900;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(30, 136, 229, 0.25);
+            background: rgba(30, 136, 229, 0.08);
+            color: rgba(31, 41, 55, .88);
+            margin-bottom: 10px;
+        }
+
+        .ai-commit {
+            margin-top: 12px;
+            border-radius: 16px;
+            padding: 12px;
+            border: 1px dashed rgba(27, 94, 32, 0.28);
+            background: rgba(27, 94, 32, 0.06);
+            color: rgba(31, 41, 55, .84);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top bar -->
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-inner">
+                <div class="brand">
+                    <div class="kicker">Triết học Mác - Lê-nin</div>
+                    <div class="title">Phép biện chứng duy vật</div>
+                </div>
+                <nav class="nav">
+                    <a href="#home">Trang chủ</a>
+                    <a href="#cap-pham-tru">Nội dung</a>
+                    <a href="#video">Video</a>
+                    <a href="#minigame">Mini game</a>
+                    <a href="#ai-usage">AI Usage</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero" id="home">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-card">
+                    <div class="hero-kicker"><span class="dot"></span> Chương II — Trục nội dung</div>
+
+                    <h1>PHÉP BIỆN CHỨNG<br />DUY VẬT</h1>
+
+                    <p class="subtitle">
+                        Nội dung được triển khai xoay quanh nhận định của Friedrich Engels:
+                        <b>“Trong tự nhiên, không có gì tồn tại một cách biệt lập”</b>,
+                        coi đây là trục tư tưởng xuyên suốt,
+                        trên cơ sở vận dụng nguyên lý mối liên hệ phổ biến và sáu cặp phạm trù của phép biện chứng duy
+                        vật để phân tích, làm rõ và liên hệ với thực tiễn hiện nay.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="btn primary" href="#cap-pham-tru">📚 Xem nội dung</a>
+                        <a class="btn" href="#video">🎬 Xem video</a>
+                        <a class="btn" href="#minigame">🎮 Mini game</a>
+                    </div>
+
+                    <div class="chips">
+                        <span class="chip green">Nguyên lý mối liên hệ</span>
+                        <span class="chip blue">6 cặp phạm trù</span>
+                        <span class="chip">Liên hệ thực tiễn</span>
+                    </div>
+
+                    <div class="scroll-hint">
+                        <span class="scroll-pill">Kéo xuống để xem chi tiết ↓</span>
+                    </div>
+                </div>
+
+                <div class="quote" aria-label="Quote Engels">
+                    <div class="quote-accent"></div>
+                    <div class="quote-body">
+                        <div class="quote-label">TRỤC TƯ TƯỞNG</div>
+
+                        <div class="quote-context">
+                            Nhận định nền tảng của phép biện chứng duy vật:
+                        </div>
+
+                        <blockquote><b>“In nature, nothing takes place in isolation.”</b></blockquote>
+
+                        <div class="quote-vi">
+                            <em>(Trong thế giới tự nhiên, không có gì tồn tại một mình.)</em>
+                        </div>
+
+                        <div class="quote-author">— Friedrich Engels</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 6 pairs -->
+    <section id="cap-pham-tru">
+        <div class="container">
+            <div class="section-head">
+                <h2>Nội dung lý thuyết</h2>
+            </div>
+
+            <div class="pairs-intro">
+                <div class="pairs-intro-top">
+                    <div>
+                        <div class="pairs-title">Các cặp phạm trù của phép biện chứng duy vật</div>
+                    </div>
+
+                    <button class="btn primary" id="openBookBtn" type="button">📖 Mở sách</button>
+                </div>
+
+                <p class="pairs-desc">
+                    Sáu cặp phạm trù là những công cụ lý luận cơ bản của phép biện chứng duy vật,
+                    giúp con người phân tích sự vật và hiện tượng trong hiện thực khách quan
+                    theo nhiều chiều và trong mối liên hệ biện chứng.
+                </p>
+
+                <details class="pairs-more">
+                    <summary> 👉 Nhấn để xem danh sách 6 cặp phạm trù 👈</summary>
+                    <ul class="pairs-list">
+                        <li><b>Cái riêng – cái chung</b></li>
+                        <li><b>Nguyên nhân – kết quả</b></li>
+                        <li><b>Tất nhiên – ngẫu nhiên</b></li>
+                        <li><b>Bản chất – hiện tượng</b></li>
+                        <li><b>Nội dung – hình thức</b></li>
+                        <li><b>Khả năng – hiện thực</b></li>
+                    </ul>
+                </details>
+
+                <div class="pairs-note">
+                    Gợi ý trải nghiệm: xem nhanh danh sách → nhấn <b>Mở sách</b> → đọc từng cặp (lý thuyết/ý nghĩa/ví
+                    dụ).
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video -->
+    <section id="video">
+        <div class="container">
+            <div class="section-head">
+                <h2>Video</h2>
+                <div class="hint">Minh hoạ nhận định của Friedrich Engels</div>
+            </div>
+
+            <div class="placeholder">
+                <div class="ph-title">
+                    <h3>Mô tả ngắn video</h3>
+                </div>
+
+                <p>
+                    Video này khai thác nhận định của Friedrich Engels:
+                    <b>“Trong thế giới tự nhiên, không có gì tồn tại một mình.”</b>,
+                    qua đó làm rõ nguyên lý mối liên hệ phổ biến bằng những ví dụ gắn với tự nhiên và đời sống hiện nay.
+                </p>
+
+                <ul>
+                    <li>Hiểu vì sao mọi sự vật luôn tồn tại trong các mối liên hệ</li>
+                    <li>Nhận diện sự tác động qua lại giữa tự nhiên, xã hội và con người</li>
+                    <li>Liên hệ lý luận triết học với thực tiễn hiện nay</li>
+                </ul>
+
+                <div class="ph-box">
+                    <div class="video-wrap">
+                        <video controls width="100%" style="border-radius:16px; box-shadow: var(--shadow);">
+                            <source src="./vid/MLNVideo.mp4" type="video/mp4">
+                            Trình duyệt của bạn không hỗ trợ video.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mini game: 10 câu tình huống -->
+    <section id="minigame">
+        <div class="container">
+            <div class="section-head">
+                <h2>Mini game</h2>
+            </div>
+
+            <div class="game-shell">
+                <div class="game-row" style="margin-top:0;">
+                    <div style="font-weight:900; color: rgba(31,41,55,.88);">Chọn Cặp Phạm Trù Phù Hợp</div>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                        <button class="btn" id="gameRestart" type="button">🔄 Chơi lại</button>
+                        <button class="btn primary" id="gameNext" type="button" disabled>➡️ Câu tiếp</button>
+                    </div>
+                </div>
+
+                <div class="kpis">
+                    <div class="kpi">
+                        <div class="num" id="gScore">0</div>
+                        <div class="txt">Điểm</div>
+                    </div>
+                    <div class="kpi">
+                        <div class="num" id="gIndex">1/10</div>
+                        <div class="txt">Tiến độ</div>
+                    </div>
+                    <div class="kpi">
+                        <div class="num" id="gRight">0</div>
+                        <div class="txt">Số câu đúng</div>
+                    </div>
+                    <div class="kpi">
+                        <div class="num" id="gWrong">0</div>
+                        <div class="txt">Số câu sai</div>
+                    </div>
+                </div>
+
+                <div class="progress" aria-label="tiến độ">
+                    <div class="bar" id="gBar"></div>
+                </div>
+
+                <div class="game-q" id="gQuestion" aria-live="polite"></div>
+                <div class="choices" id="gChoices"></div>
+
+                <div class="status" id="gStatus">Chọn đáp án để bắt đầu nhé.</div>
+
+                <div class="mini" style="margin-top:10px;">
+                    Mẹo: đọc tình huống → xác định “quan hệ” nổi bật nhất → chọn cặp phạm trù phù hợp. <b>(Đúng +1, Sai
+                        -0.5)</b>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- AI Usage -->
+    <section id="ai-usage">
+        <div class="container">
+            <div class="section-head">
+                <h2>Ứng dụng AI có trách nhiệm</h2>
+                <div class="hint">Minh bạch – Kiểm chứng – Sáng tạo – Liêm chính học thuật</div>
+            </div>
+
+            <div class="placeholder">
+                <div class="ai-tag">🤖 AI Usage / Mục 4</div>
+
+                <div class="ai-grid">
+                    <div class="ai-card">
+                        <h3>4.1. Minh bạch việc sử dụng AI</h3>
+                        <ul>
+                            <li><b>ChatGPT</b>: gợi ý trình bày nội dung, ví dụ minh họa, câu hỏi mini game, chỉnh diễn
+                                đạt & bố cục web.</li>
+                            <li><b>RoboNeo</b>: chuyển hình ảnh minh họa thành video ngắn phục vụ thuyết trình.</li>
+                            <li><b>Vbee</b>: chuyển văn bản thành giọng đọc thuyết minh cho video.</li>
+                        </ul>
+                        <p style="margin-top:8px;">👉 AI chỉ <b>hỗ trợ</b>, không thay thế tư duy của sinh viên.</p>
+                    </div>
+
+                    <div class="ai-card">
+                        <h3>4.2. Trách nhiệm kiểm chứng thông tin</h3>
+                        <p>
+                            Nội dung học thuật (nguyên lý mối liên hệ phổ biến và 6 cặp phạm trù)
+                            được <b>đối chiếu và kiểm chứng</b> với <b>giáo trình Triết học Mác – Lênin</b> và
+                            <b>tài liệu học phần</b>. Sinh viên chịu trách nhiệm về độ chính xác và tính chính thống.
+                        </p>
+                    </div>
+
+                    <div class="ai-card">
+                        <h3>4.3. Ứng dụng AI mang tính sáng tạo</h3>
+                        <p>
+                            AI được dùng như công cụ hỗ trợ tạo trải nghiệm học tập trực quan:
+                            <b>sơ đồ/quiz</b>, <b>video</b> và <b>voice</b> giúp nội dung dễ tiếp cận hơn.
+                            Nội dung học thuật cốt lõi do sinh viên lựa chọn – biên soạn – triển khai.
+                        </p>
+                    </div>
+
+                    <div class="ai-card">
+                        <h3>4.4. Liêm chính học thuật (3 dấu hiệu)</h3>
+                        <ul>
+                            <li>Không dùng AI tạo ra <b>toàn bộ</b> nội dung học thuật.</li>
+                            <li>Kết quả AI gợi ý đều được sinh viên <b>đọc hiểu – phân tích – chỉnh sửa</b> trước khi
+                                đưa vào sản phẩm.</li>
+                            <li>Nội dung cuối cùng là kết quả của <b>tư duy và trách nhiệm học thuật</b> của sinh viên,
+                                không sao chép nguyên văn.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="ai-commit">
+                    <b>Cam kết:</b> AI được sử dụng có kiểm soát, minh bạch, đúng mục đích học tập; sinh viên chịu trách
+                    nhiệm về nội dung cuối cùng.
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="container">
+            <div class="footline">
+                <div>© <span id="y"></span> — Triết học Mác - Lê-nin | Phép biện chứng duy vật</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ====== BOOK MODAL ====== -->
+    <div class="modal" id="bookModal" aria-hidden="true" role="dialog" aria-label="Sách 6 cặp phạm trù">
+        <button class="modal-close" id="closeBookBtn" type="button" aria-label="Đóng">×</button>
+
+        <button class="side-arrow left" id="sidePrev" type="button" aria-label="Trang trước">‹</button>
+        <button class="side-arrow right" id="sideNext" type="button" aria-label="Trang sau">›</button>
+
+        <div class="book-frame" role="document">
+            <div class="book-shell">
+                <div class="book-topbar">
+                    <div class="book-top-left">
+                        <span class="book-pill" id="pairTag">Cặp phạm trù</span>
+                        <span class="book-pager"><span id="pageIndex">1</span>/<span id="pageTotal">6</span></span>
+                    </div>
+                </div>
+
+                <div class="book-pages">
+                    <!-- LEFT -->
+                    <div class="page left">
+                        <div class="page-chip">Lý thuyết & Ý nghĩa</div>
+                        <h3 class="page-title" id="pairTitle">1) Cái riêng – Cái chung</h3>
+
+                        <div class="page-block">
+                            <div class="page-label">Lý thuyết</div>
+                            <div class="page-text" id="pairTheory"></div>
+                        </div>
+
+                        <div class="page-block meaning">
+                            <div class="page-label"><b>Ý nghĩa</b></div>
+                            <div class="page-text" id="pairMeaning"></div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT -->
+                    <div class="page right">
+                        <div class="page-chip">Ví dụ & Hình minh hoạ</div>
+
+                        <div class="page-block example" style="margin-top:12px;">
+                            <div class="page-label">Ví dụ</div>
+                            <div class="page-text" id="pairExample"></div>
+                        </div>
+
+                        <div class="illus fade-swap" id="pairIllus" style="margin-top:12px;"></div>
+
+                        <div class="book-nav">
+                            <button class="btn ghost" id="prevBtn" type="button">‹ Trước</button>
+                            <button class="btn primary" id="nextBtn" type="button">Sau ›</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // year
+        document.getElementById("y").textContent = new Date().getFullYear();
+
+        // ===== Dữ liệu 6 cặp phạm trù (Book) =====
+        const pairs = [
+            {
+                tag: "Cái riêng – Cái chung",
+                title: "1. Cái riêng – Cái chung",
+                theory: `
+          <b>Cái riêng</b> là sự vật, hiện tượng cụ thể, tồn tại trong điều kiện xác định.<br>
+          <b>Cái chung</b> là những thuộc tính, mối liên hệ lặp lại ở nhiều cái riêng.<br>
+          <b>Cái riêng</b> luôn tồn tại trong mối liên hệ với <b>cái chung</b>; <b>cái chung</b> chỉ tồn tại thông qua <b>cái riêng</b>.
+        `,
+                meaning: `
+          <b>Ý nghĩa:</b> Nhận thức <b>cái chung</b> phải xuất phát từ <b>cái riêng</b>;
+          khi hành động cần vận dụng <b>cái chung</b> phù hợp với điều kiện cụ thể.
+        `,
+                example: `<b>Ví dụ:</b> Mỗi thửa ruộng lúa là một <b>cái riêng</b>, nhưng đều tuân theo quy luật sinh trưởng của cây lúa (<b>cái chung</b>).`,
+                svg: `<img src="./pic/no1.png" alt="no1" style="width:100%; height:100%; object-fit:contain; border-radius:12px;" />`
+            },
+            {
+                tag: "Nguyên nhân – Kết quả",
+                title: "2. Nguyên nhân – Kết quả",
+                theory: `
+          <b>Nguyên nhân</b> là sự tác động tạo ra biến đổi.<br>
+          <b>Kết quả</b> là biến đổi do nguyên nhân gây ra.<br>
+          Một nguyên nhân có thể sinh nhiều kết quả; <b>kết quả</b> có thể trở thành <b>nguyên nhân</b> mới.
+        `,
+                meaning: `
+          <b>Ý nghĩa:</b> Muốn thay đổi <b>kết quả</b> phải tác động đúng <b>nguyên nhân</b>, tránh nhìn hiện tượng một chiều.
+        `,
+                example: `<b>Ví dụ:</b> <b>Biến đổi khí hậu</b> là nguyên nhân làm năng suất nông nghiệp giảm, ảnh hưởng đến đời sống người dân.`,
+                svg: `<img src="./pic/no2.png" alt="no2" style="width:100%; height:100%; object-fit:contain; border-radius:12px;" />`
+            },
+            {
+                tag: "Tất nhiên – Ngẫu nhiên",
+                title: "3. Tất nhiên – Ngẫu nhiên",
+                theory: `
+          <b>Tất nhiên</b> là cái do nguyên nhân bên trong quyết định, phải xảy ra.<br>
+          <b>Ngẫu nhiên</b> là cái do sự kết hợp tình cờ của các yếu tố bên ngoài.<br>
+          Chúng thống nhất với nhau và có thể chuyển hóa lẫn nhau trong điều kiện nhất định.
+        `,
+                meaning: `
+          <b>Ý nghĩa:</b> Khi phân tích sự vật phải thấy cả yếu tố <b>tất nhiên</b> và <b>ngẫu nhiên</b>, tránh tuyệt đối hóa một phía.
+        `,
+                example: `<b>Ví dụ:</b> Trái cây chín theo mùa là <b>tất nhiên</b>, còn mưa lớn đúng ngày thu hoạch là <b>ngẫu nhiên</b>.`,
+                svg: `<img src="./pic/no3.png" alt="no3" style="width:100%; height:100%; object-fit:contain; border-radius:12px;" />`
+            },
+            {
+                tag: "Bản chất – Hiện tượng",
+                title: "4. Bản chất – Hiện tượng",
+                theory: `
+          <b>Bản chất</b> là những mối liên hệ bên trong, tương đối ổn định của sự vật.<br>
+          <b>Hiện tượng</b> là sự biểu hiện ra bên ngoài của bản chất.<br>
+          <b>Bản chất</b> bộc lộ qua <b>hiện tượng</b>, nhưng hiện tượng có thể che giấu bản chất.
+        `,
+                meaning: `
+          <b>Ý nghĩa:</b> Muốn hiểu đúng sự vật phải đi từ <b>hiện tượng</b> đến <b>bản chất</b>, không dừng lại ở bề ngoài.
+        `,
+                example: `<b>Ví dụ:</b> Giá nông sản tăng cao là <b>hiện tượng</b>, còn cung – cầu thị trường mới là <b>bản chất</b> chi phối.`,
+                svg: `<img src="./pic/no4.png" alt="no4" style="width:100%; height:100%; object-fit:contain; border-radius:12px;" />`
+            },
+            {
+                tag: "Nội dung – Hình thức",
+                title: "5. Nội dung – Hình thức",
+                theory: `
+          <b>Nội dung</b> là toàn bộ các yếu tố, quá trình cấu thành sự vật.<br>
+          <b>Hình thức</b> là cách tổ chức, biểu hiện của nội dung.<br>
+          <b>Nội dung</b> quyết định <b>hình thức</b>, nhưng hình thức có tác động trở lại nội dung.
+        `,
+                meaning: `
+          <b>Ý nghĩa:</b> Cần kết hợp hài hòa <b>nội dung</b> và <b>hình thức</b>, tránh chạy theo hình thức mà xem nhẹ nội dung.
+        `,
+                example: `<b>Ví dụ:</b> Một chính sách phát triển nông nghiệp cần <b>nội dung</b> phù hợp thực tiễn và <b>hình thức</b> triển khai hiệu quả.`,
+                svg: `<img src="./pic/no5.png" alt="no5" style="width:100%; height:100%; object-fit:contain; border-radius:12px;" />`
+            },
+            {
+                tag: "Khả năng – Hiện thực",
+                title: "6. Khả năng – Hiện thực",
+                theory: `
+          <b>Khả năng</b> là cái chưa xảy ra nhưng có thể xảy ra khi đủ điều kiện.<br>
+          <b>Hiện thực</b> là cái đã và đang tồn tại.<br>
+          <b>Khả năng</b> và <b>hiện thực</b> luôn gắn bó và chuyển hóa lẫn nhau.
+        `,
+                meaning: `
+          <b>Ý nghĩa:</b> Hành động phải dựa trên <b>hiện thực</b>, đồng thời tạo điều kiện để <b>khả năng</b> tích cực trở thành hiện thực.
+        `,
+                example: `<b>Ví dụ:</b> Ứng dụng khoa học – công nghệ mở ra <b>khả năng</b> nâng cao năng suất, khi được đầu tư sẽ trở thành <b>hiện thực</b>.`,
+                svg: `<img src="./pic/no6.png" alt="no6" style="width:100%; height:100%; object-fit:contain; border-radius:12px;" />`
+            }
+        ];
+
+        // ===== Book modal navigation =====
+        const modal = document.getElementById("bookModal");
+        const openBtn = document.getElementById("openBookBtn");
+        const closeBtn = document.getElementById("closeBookBtn");
+
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        const sidePrev = document.getElementById("sidePrev");
+        const sideNext = document.getElementById("sideNext");
+
+        const pairTag = document.getElementById("pairTag");
+        const pageIndex = document.getElementById("pageIndex");
+        const pageTotal = document.getElementById("pageTotal");
+
+        const pairTitle = document.getElementById("pairTitle");
+        const pairTheory = document.getElementById("pairTheory");
+        const pairMeaning = document.getElementById("pairMeaning");
+        const pairExample = document.getElementById("pairExample");
+        const pairIllus = document.getElementById("pairIllus");
+
+        let bookIdx = 0;
+        pageTotal.textContent = String(pairs.length);
+
+        function setBookButtons() {
+            const atStart = bookIdx === 0;
+            const atEnd = bookIdx === pairs.length - 1;
+            prevBtn.disabled = atStart;
+            sidePrev.disabled = atStart;
+            nextBtn.disabled = atEnd;
+            sideNext.disabled = atEnd;
+        }
+
+        function renderBook() {
+            const p = pairs[bookIdx];
+            pairTag.textContent = p.tag;
+            pageIndex.textContent = String(bookIdx + 1);
+
+            pairTitle.textContent = p.title;
+            pairTheory.innerHTML = p.theory;
+            pairMeaning.innerHTML = p.meaning;
+            pairExample.innerHTML = p.example;
+
+            pairIllus.classList.remove("fade-swap");
+            void pairIllus.offsetWidth;
+            pairIllus.classList.add("fade-swap");
+            pairIllus.innerHTML = p.svg;
+
+            setBookButtons();
+        }
+
+        function openModal() {
+            modal.classList.add("show");
+            modal.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+            renderBook();
+        }
+
+        function closeModal() {
+            modal.classList.remove("show");
+            modal.setAttribute("aria-hidden", "true");
+            document.body.style.overflow = "";
+        }
+
+        function bookPrev() { if (bookIdx > 0) { bookIdx--; renderBook(); } }
+        function bookNext() { if (bookIdx < pairs.length - 1) { bookIdx++; renderBook(); } }
+
+        openBtn.addEventListener("click", openModal);
+        closeBtn.addEventListener("click", closeModal);
+
+        prevBtn.addEventListener("click", bookPrev);
+        sidePrev.addEventListener("click", bookPrev);
+        nextBtn.addEventListener("click", bookNext);
+        sideNext.addEventListener("click", bookNext);
+
+        modal.addEventListener("click", (e) => {
+            const clickedInside = e.target.closest(".book-frame");
+            if (!clickedInside && e.target !== sidePrev && e.target !== sideNext) {
+                closeModal();
+            }
+        });
+
+        window.addEventListener("keydown", (e) => {
+            if (!modal.classList.contains("show")) return;
+            if (e.key === "Escape") closeModal();
+            if (e.key === "ArrowLeft") bookPrev();
+            if (e.key === "ArrowRight") bookNext();
+        });
+
+        // ===== Mini game: 10 tình huống (đúng +1, sai -0.5) =====
+        const gScoreEl = document.getElementById("gScore");
+        const gIndexEl = document.getElementById("gIndex");
+        const gRightEl = document.getElementById("gRight");
+        const gWrongEl = document.getElementById("gWrong");
+        const gBarEl = document.getElementById("gBar");
+        const gQuestionEl = document.getElementById("gQuestion");
+        const gChoicesEl = document.getElementById("gChoices");
+        const gStatusEl = document.getElementById("gStatus");
+        const gRestartBtn = document.getElementById("gameRestart");
+        const gNextBtn = document.getElementById("gameNext");
+
+        const PAIRS = [
+            "Cái riêng – cái chung",
+            "Nguyên nhân – kết quả",
+            "Tất nhiên – ngẫu nhiên",
+            "Bản chất – hiện tượng",
+            "Nội dung – hình thức",
+            "Khả năng – hiện thực"
+        ];
+
+        // 10 câu hỏi (đúng theo bộ bạn có)
+        const GAME_QUESTIONS_BASE = [
+            {
+                topic: "Tự nhiên",
+                title: "Cây lúa và điều kiện sinh trưởng",
+                situation: "Cây lúa muốn sinh trưởng phải có đất, nước, ánh sáng và chất dinh dưỡng. Nếu thiếu một trong các yếu tố này, cây sẽ phát triển kém hoặc chết.",
+                correct: "Nguyên nhân – kết quả",
+                explain: "Thiếu điều kiện (nguyên nhân) dẫn tới cây kém phát triển/chết (kết quả)."
+            },
+            {
+                topic: "Đời sống",
+                title: "Học tập và kết quả thi",
+                situation: "Một học sinh thường xuyên học tập chăm chỉ, ôn luyện đều đặn nên đạt kết quả cao trong kỳ thi.",
+                correct: "Nguyên nhân – kết quả",
+                explain: "Chăm chỉ ôn luyện (nguyên nhân) tạo ra điểm số cao (kết quả)."
+            },
+            {
+                topic: "Tự nhiên",
+                title: "Trái cây chín và mưa bão",
+                situation: "Trái cây chín theo đúng mùa là điều thường xuyên xảy ra, nhưng có năm mưa bão làm trái rụng sớm trước ngày thu hoạch.",
+                correct: "Tất nhiên – ngẫu nhiên",
+                explain: "Chín theo mùa là tất nhiên; mưa bão đúng lúc làm rụng sớm là ngẫu nhiên."
+            },
+            {
+                topic: "Xã hội",
+                title: "Giá xăng tăng",
+                situation: "Giá xăng tăng cao là điều người dân dễ thấy trên thị trường, nhưng nguyên nhân sâu xa là do cung – cầu và biến động giá dầu thế giới.",
+                correct: "Bản chất – hiện tượng",
+                explain: "Giá tăng là hiện tượng; cung–cầu/biến động năng lượng là bản chất chi phối."
+            },
+            {
+                topic: "Đời sống",
+                title: "Thuyết trình hay nhưng khó hiểu",
+                situation: "Một bài thuyết trình có nội dung hay nhưng trình bày rối rắm, khó hiểu nên người nghe không tiếp thu được.",
+                correct: "Nội dung – hình thức",
+                explain: "Nội dung tốt nhưng hình thức trình bày kém khiến hiệu quả tiếp nhận giảm."
+            },
+            {
+                topic: "Phát triển",
+                title: "Công nghệ trong nông nghiệp",
+                situation: "Ứng dụng công nghệ cao có thể giúp nông nghiệp tăng năng suất, nhưng chỉ khi được đầu tư và triển khai thì điều đó mới xảy ra.",
+                correct: "Khả năng – hiện thực",
+                explain: "Công nghệ mở ra khả năng; đầu tư/triển khai biến khả năng thành hiện thực."
+            },
+            {
+                topic: "Tự nhiên",
+                title: "Mỏ chim và thích nghi",
+                situation: "Mỗi loài chim có hình dạng mỏ khác nhau, nhưng tất cả đều thích nghi với chức năng kiếm ăn của loài đó.",
+                correct: "Cái riêng – cái chung",
+                explain: "Mỏ từng loài là cái riêng; quy luật thích nghi là cái chung."
+            },
+            {
+                topic: "Đời sống",
+                title: "Gia đình trong khu phố",
+                situation: "Trong một khu phố, mỗi gia đình có hoàn cảnh khác nhau nhưng đều phải tuân thủ các quy định chung về an ninh, trật tự.",
+                correct: "Cái riêng – cái chung",
+                explain: "Mỗi gia đình là cái riêng; quy định cộng đồng là cái chung."
+            },
+            {
+                topic: "Tự nhiên",
+                title: "Mùa mưa và lũ",
+                situation: "Mùa mưa hằng năm ở miền Trung thường gây lũ lụt, nhưng mức độ ngập nặng hay nhẹ còn phụ thuộc vào từng năm cụ thể.",
+                correct: "Tất nhiên – ngẫu nhiên",
+                explain: "Mùa mưa gây lũ là xu hướng tất nhiên; nặng/nhẹ từng năm là yếu tố ngẫu nhiên."
+            },
+            {
+                topic: "Đời sống",
+                title: "Cơ hội thăng tiến",
+                situation: "Một người có nhiều cơ hội thăng tiến trong công việc, nhưng nếu không nỗ lực học hỏi và rèn luyện thì vẫn không đạt được vị trí cao hơn.",
+                correct: "Khả năng – hiện thực",
+                explain: "Cơ hội là khả năng; nỗ lực/điều kiện phù hợp mới biến thành hiện thực."
+            }
+        ];
+
+        function shuffle(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+        function clampHalf(x) { return Math.round(x * 2) / 2; }
+
+        function buildQuestions() {
+            // Mỗi câu tạo 4 lựa chọn: 1 đúng + 3 nhiễu
+            const res = GAME_QUESTIONS_BASE.map(q => {
+                const wrongs = shuffle(PAIRS.filter(p => p !== q.correct)).slice(0, 3);
+                const options = shuffle([q.correct, ...wrongs]);
+                return { ...q, options };
+            });
+            return shuffle(res); // đảo thứ tự câu cho vui
+        }
+
+        let questions = [];
+        let qIdx = 0;
+        let score = 0;
+        let right = 0;
+        let wrong = 0;
+        let locked = false;
+
+        function setStatus(msg, type) {
+            gStatusEl.classList.remove("good", "bad");
+            if (type) gStatusEl.classList.add(type);
+            gStatusEl.textContent = msg;
+        }
+
+        function updateHUD() {
+            const total = questions.length || 10;
+            gScoreEl.textContent = clampHalf(score);
+            gIndexEl.textContent = `${Math.min(qIdx + 1, total)}/${total}`;
+            gRightEl.textContent = right;
+            gWrongEl.textContent = wrong;
+            gBarEl.style.width = `${(qIdx / total) * 100}%`;
+        }
+
+        function renderQuestion() {
+            const total = questions.length;
+            const q = questions[qIdx];
+
+            gQuestionEl.innerHTML = `
+        <div class="label">Câu ${qIdx + 1} / ${total} • ${q.topic}</div>
+        <h3>${q.title}</h3>
+        <p>${q.situation}</p>
+        <p style="margin-top:10px;"><b>Hỏi:</b> Tình huống này thuộc cặp phạm trù nào?</p>
+      `;
+
+            gChoicesEl.innerHTML = "";
+            q.options.forEach(opt => {
+                const div = document.createElement("div");
+                div.className = "choice";
+                div.setAttribute("role", "button");
+                div.tabIndex = 0;
+                div.textContent = opt;
+
+                div.addEventListener("click", () => onChoose(div, opt));
+                div.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        onChoose(div, opt);
+                    }
+                });
+
+                gChoicesEl.appendChild(div);
+            });
+
+            locked = false;
+            gNextBtn.disabled = true;
+            setStatus("Chọn 1 đáp án.", null);
+            updateHUD();
+        }
+
+        function disableChoices() {
+            [...gChoicesEl.querySelectorAll(".choice")].forEach(c => c.setAttribute("aria-disabled", "true"));
+        }
+
+        function onChoose(choiceEl, selected) {
+            if (locked) return;
+            locked = true;
+
+            const q = questions[qIdx];
+            const isCorrect = selected === q.correct;
+
+            [...gChoicesEl.querySelectorAll(".choice")].forEach(c => {
+                const val = c.textContent;
+                if (val === q.correct) c.classList.add("correct");
+                if (val === selected && val !== q.correct) c.classList.add("wrong");
+            });
+
+            if (isCorrect) {
+                score += 1;
+                right += 1;
+                setStatus(`✅ Đúng! (${q.correct}) — ${q.explain}  (+1 điểm)`, "good");
+            } else {
+                score -= 0.5;
+                wrong += 1;
+                setStatus(`❌ Sai. Đáp án đúng: (${q.correct}) — ${q.explain}  (-0.5 điểm)`, "bad");
+            }
+
+            score = clampHalf(score);
+            disableChoices();
+            gNextBtn.disabled = false;
+            updateHUD();
+
+            if (qIdx === questions.length - 1) {
+                gBarEl.style.width = "100%";
+                gNextBtn.textContent = "Xem kết quả";
+            } else {
+                gNextBtn.textContent = "Câu tiếp";
+            }
+        }
+
+        function showFinal() {
+            const total = questions.length;
+            const msg = `Hoàn thành 🎉  Điểm: ${clampHalf(score)} | Đúng: ${right}/${total} | Sai: ${wrong}/${total}.`;
+            setStatus(msg, "good");
+            gQuestionEl.innerHTML = `
+        <div class="label">Kết thúc</div>
+        <h3>Bạn đã hoàn thành mini game.</h3>
+        <p>${msg}</p>
+        <p style="margin:10px 0 0; color: rgba(31,41,55,.72);">
+          Gợi ý: dùng đúng cặp phạm trù sẽ giúp “nhìn ra quan hệ” trong tình huống (nhân–quả, tất nhiên–ngẫu nhiên, khả năng–hiện thực…).
+        </p>
+      `;
+            gChoicesEl.innerHTML = "";
+            gNextBtn.disabled = true;
+        }
+
+        function gameRestart() {
+            questions = buildQuestions();
+            qIdx = 0;
+            score = 0;
+            right = 0;
+            wrong = 0;
+            locked = false;
+            gNextBtn.textContent = "Câu tiếp";
+            gNextBtn.disabled = true;
+            gBarEl.style.width = "0%";
+            renderQuestion();
+        }
+
+        gRestartBtn.addEventListener("click", gameRestart);
+        gNextBtn.addEventListener("click", () => {
+            if (qIdx === questions.length - 1) {
+                showFinal();
+                return;
+            }
+            qIdx += 1;
+            renderQuestion();
+        });
+
+        // init game
+        gameRestart();
+    </script>
+</body>
+
+</html>
